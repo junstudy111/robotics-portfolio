@@ -1,0 +1,16 @@
+unmanned-store-robot/dsr_rokey/*/resource/
+unmanned-store-robot/dsr_rokey/*/web/static/
+
+# Python 캐시
+**/__pycache__/
+*.pyc
+*.pyo
+
+# ROS
+*.bag
+*.db3
+
+# 빌드 파일
+build/
+install/
+log/

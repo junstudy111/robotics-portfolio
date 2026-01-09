@@ -1,0 +1,10 @@
+# Goal: 서버가 수행해야 할 작업 목표
+string target_command    # '갖다줘', '구매', '정리', '반품'
+string target_object     # 'shoes', 'shoes2' 등
+---
+# Result: 서버가 작업을 완료한 후 반환하는 결과
+bool success             # 작업 성공 여부 (True/False)
+string success_message   # 최종 결과 메시지 (성공/실패 이유)
+---
+# Feedback: 작업 진행 중 클라이언트에게 보내는 실시간 정보
+string status_message    # 현재 진행 단계 (예: "물체 인식 중", "그리퍼 닫는 중")
