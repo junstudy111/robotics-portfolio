@@ -1,0 +1,5 @@
+string task_id
+string from_location
+string to_location
+---
+bool accepted

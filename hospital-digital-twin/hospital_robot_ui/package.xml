@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>hospital_robot_ui</name>
+  <version>0.0.0</version>
+  <description>Hospital Robot UI Node</description>
+
+  <maintainer email="rokey@todo.todo">rokey</maintainer>
+  <license>MIT</license>
+
+  <!-- ⭐ 이 줄이 핵심 -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- 테스트 (있어도 되고 없어도 됨) -->
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

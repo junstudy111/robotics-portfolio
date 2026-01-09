@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Hospital Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="main-header">
+            <div class="robot-status">
+                <span class="status-dot online"></span>
+                <span id="robot-main-status">로봇 대기 중</span>
+            </div>
+            <div class="battery-info">🔋 85%</div>
+        </header>
+
+        <main class="content-wrapper">
+            <section class="panel patients">
+                <div class="panel-header"><h3>대상 환자</h3></div>
+                <div class="scroll-area">
+                    <ul id="patient-list" class="list-container"></ul>
+                </div>
+            </section>
+
+            <section class="panel center">
+                <div class="info-group">
+                    <div class="panel-header"><h3>환자 상세 정보</h3></div>
+                    <div id="patient-info" class="text-box info-display">환자를 선택하세요.</div>
+                </div>
+                
+                <div class="sample-group">
+                    <div class="panel-header"><h3>검체 목록</h3></div>
+                    <div class="scroll-area-short">
+                        <ul id="sample-list" class="list-container"></ul>
+                    </div>
+                </div>
+
+                <div class="result-group">
+                    <div class="panel-header"><h3>검사 결과</h3></div>
+                    <div id="sample-result" class="text-box result-display">결과 대기 중...</div>
+                </div>
+            </section>
+
+            <section class="panel controls">
+                <div class="panel-header"><h3>이송 설정</h3></div>
+                <div class="control-box">
+                    <div class="input-field">
+                        <label>출발지</label>
+                        <select id="departure-cb">
+                            <option>자동 선택 (병동)</option>
+                            <option>채혈실</option>
+                            <option>수술실</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label>도착지</label>
+                        <select id="lab-cb">
+                            <option>LAB_A - 일반 혈액</option>
+                            <option>LAB_B - 미생물</option>
+                            <option>LAB_C - 조직·병리</option>
+                        </select>
+                    </div>
+
+                    <div class="queue-area">
+                        <div class="panel-header mini"><h3>수거 대기열 (<span id="queue-count">0</span>)</h3></div>
+                        <div class="scroll-area-mini">
+                            <ul id="queue-list" class="list-container mini"></ul>
+                        </div>
+                    </div>
+
+                    <div class="side-buttons">
+                        <button class="btn-side primary" onclick="addToQueue()">대기열 추가</button>
+                        <button class="btn-side secondary" onclick="removeFromQueue()">선택 삭제</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="action-bar">
+            <button class="btn-action reset" onclick="location.reload()">초기화</button>
+            <button class="btn-action start" onclick="sendBatch()">일괄 수거 시작</button>
+            <button class="btn-action stop" onclick="emergencyStop()">긴급 정지</button>
+        </footer>
+
+        <div id="overlay" class="overlay hidden">
+            <div class="overlay-card">
+                <h3 id="overlay-title">알림</h3>
+                <p id="overlay-text"></p>
+                <button class="btn-ok" onclick="hideOverlay()">확인</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
